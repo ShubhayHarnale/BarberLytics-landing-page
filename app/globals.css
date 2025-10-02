@@ -1,0 +1,418 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Flowing website styles */
+.flowing-section {
+  @apply relative overflow-hidden py-16 md:py-24;
+}
+
+.flowing-section::before {
+  content: '';
+  @apply absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/80 to-transparent z-10 pointer-events-none;
+}
+
+.flowing-section::after {
+  content: '';
+  @apply absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white/80 z-10 pointer-events-none;
+}
+
+.section-divider {
+  @apply relative h-24 overflow-hidden;
+}
+
+.section-divider::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-b from-current to-transparent opacity-10;
+}
+
+.section-connector {
+  @apply absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-[#1C4596]/20 to-[#FCC100]/20;
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Consistent section spacing */
+section {
+  @apply relative overflow-hidden border-none;
+}
+
+/* Remove section dividers */
+section + section {
+  @apply border-t-0 mt-0;
+}
+
+/* Consistent container padding */
+.container {
+  @apply px-4 md:px-6 lg:px-8;
+}
+
+/* Subtle background patterns */
+.subtle-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Consistent text styles */
+h1, h2, h3, h4, h5, h6 {
+  @apply tracking-tighter;
+}
+
+/* Text color scheme */
+.text-on-dark {
+  @apply text-white;
+}
+
+.text-on-gradient {
+  @apply text-[#F8FAFC];
+}
+
+.text-action {
+  @apply text-[#FFE1B2];
+}
+
+.text-link {
+  @apply text-[#FFE1B2] hover:text-[#FCC100] transition-colors duration-200;
+}
+
+/* Consistent button styles */
+button, .button {
+  @apply transition-all duration-300;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-poppins), var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  @media (min-width: 768px) {
+    section {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 230 100% 75%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 230 100% 75%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 230 100% 75%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 230 100% 75%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 230 100% 75%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* @apply bg-background text-foreground; */
+    @apply text-foreground;
+    background-color: transparent !important; /* Ensure body background is transparent */
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-medium leading-tight tracking-tighter;
+    letter-spacing: -0.03em;
+  }
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl font-semibold;
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-medium;
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl font-medium;
+  }
+  p {
+    @apply leading-relaxed font-normal tracking-wide;
+    line-height: 1.8;
+  }
+  .section {
+    @apply py-16 md:py-24;
+  }
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 69, 150, 0.15) 0%,
+    rgba(58, 101, 182, 0.1) 30%,
+    rgba(252, 193, 0, 0.08) 70%,
+    rgba(255, 225, 178, 0.05) 100%
+  );
+  background-size: 100% 400%;
+  animation: vertical-gradient 15s ease-in-out infinite alternate;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes vertical-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes vertical-gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes pulse-slow {
+  0% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Floating animations with different speeds and amplitudes for testimonial section */
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 4s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float-medium {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-fast {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Blob animations */
+@keyframes hero-blob-blue {
+  0% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translate(20px, 40px) scale(1.1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translate(0, 80px) scale(0.9);
+  }
+  75% {
+    opacity: 0.3;
+    transform: translate(-20px, 40px) scale(1.05);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes hero-blob-yellow {
+  0% {
+    opacity: 0.3;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    opacity: 0.4;
+    transform: translate(-40px, 20px) scale(1.1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-60px, -20px) scale(1.2);
+  }
+  75% {
+    opacity: 0.35;
+    transform: translate(-30px, -10px) scale(1.05);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translate(0, 0) scale(1);
+  }
+}
